@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from Cars_app.views import carsListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('Cars_app/cars/list',carsListView)
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MED)
+    urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

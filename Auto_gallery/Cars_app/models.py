@@ -9,19 +9,21 @@ class CarsModel (models.Model):
 
 
     CarsName=models.CharField(max_length=50,verbose_name="نام ماشین")
-    CarsImage=models.ImageField(upload_to="CarsImage/",verbose_name="عکس ماشین",default='E:/Auto_gallery/media/1.jpg')
+    CarsImage=models.ImageField(upload_to="CarsImage/",verbose_name="عکس ماشین",default='E:/Auto_gallery/media/CarsImage/DEF.png')
     CarsDescription=models.CharField(max_length=500,verbose_name="توضیحات ماشین")
 
     benzin=1
     gaz=2
     electronic=3
-    hybrid=4
+    hybrid1=4
+    hybrid2=5
     Carsfuel_choices=((benzin,'بنزینی'),
                       (gaz,'گازویل'),
                       (electronic,'برقی'),
-                      (hybrid,'دو گانه سوز '))
-                     # ,verbose_name:="سوخت ماشین"
-    Carsfuel=models.IntegerField(Carsfuel_choices,)
+                      (hybrid1,'(گازویل,بنزینی)دو گانه سوز '),
+                      (hybrid2,'(برقی,بنزینی)دو گانه سوز '))
+    Carsfuel=models.IntegerField(choices= Carsfuel_choices, default=benzin,)
+                         # ,verbose_name:="سوخت ماشین"
 
     def __str__(self):
         return  self.CarsName

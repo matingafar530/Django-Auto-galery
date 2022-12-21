@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title> نمایش ماشین ها</title>
+    </head>
+    <body>
+        <h1>لیست ماشین ها </h1>
+        <ul>
+           
+                  {%for car in carslist%}
+                     <li>
+                            {{car.CarsName}}
+                     <li>
+                  {% endfor %}
+        </ul>
+    </body>
+</html>
